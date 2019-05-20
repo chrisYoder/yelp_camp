@@ -17,10 +17,18 @@ const express               = require('express'),
 const campgroundRoutes      = require('./routes/campgrounds'),
       commentRoutes         = require('./routes/comments'),
       indexRoutes           = require('./routes/index');
-      
 
-   
+
 mongoose.connect('mongodb://localhost:27017/yelp_camp', { useNewUrlParser: true} );
+mongoose.connect('mongodb+srv://theCodingStoic:Martin9338@cluster0-budax.mongodb.net/test?retryWrites=true', { 
+	useNewUrlParser: true,
+	useCreateIndex: true
+}).then(() => {
+	console.log('connected to db');
+}).catch(err => {
+	console.log('ERROR:', err.message);
+});
+
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
@@ -63,4 +71,4 @@ app.use('/campgrounds', campgroundRoutes);
 
 
 
-app.listen(process.env.PORT, process.env.IP, () => console.log('Yelp Camp is running'));
+app.listen(process.env.LOCALPORT, () => console.log('Yelp Camp is running'));
