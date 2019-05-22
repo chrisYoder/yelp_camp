@@ -11,7 +11,12 @@ const express     = require('express'),
 router.get('', (req, res) => {
   // get all campgrounds from dv
   Campground.find({}, (err, allCampgrounds) => {
-    err ? console.log(err) : res.render('campgrounds/index', {campgrounds: allCampgrounds, page: 'campgrounds'});
+    if(err){
+		console.log(err);
+	} else {
+		res.render('campgrounds/index', {campgrounds: allCampgrounds, page: 'campgrounds'});
+	}
+		
   });
 });
 

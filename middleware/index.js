@@ -52,7 +52,12 @@ middlewareObject.checkCommentOwnership = function (req, res, next) {
 };
 
 middlewareObject.isLoggedIn = function (req, res, next) {
-  req.isAuthenticated() ? next() : (req.flash('error', 'You need to be logged in to do that'), res.redirect('/login'));
+	if(req.isAuthenticated()) {
+		next();
+	} else {
+		req.flash('error', 'You need to be logged in to do that');
+		res.redirect('/login');
+	}  
 };
 
 
