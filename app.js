@@ -19,7 +19,15 @@ const campgroundRoutes      = require('./routes/campgrounds'),
       indexRoutes           = require('./routes/index');
       
 console.log(process.env.DATABASEURL);
-mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true} ); 
+mongoose.connect(process.env.DATABASEURL, { 
+	useNewUrlParser: true,
+	useCreateIndex: true
+}).then(() => {
+	console.log('connected to db');
+}).catch(err => {
+	console.log('ERROR:', err.message);
+});
+
 // mongoose.connect('mongodb+srv://theCodingStoic:Martin9338@cluster0-budax.mongodb.net/test?retryWrites=true', { 
 // 	useNewUrlParser: true,
 // 	useCreateIndex: true
