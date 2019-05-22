@@ -43,19 +43,19 @@ body {
   background-image: url(https://images.pexels.com/photos/2108709/pexels-photo-2108709.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) 
 }
 .slideshow li:nth-child(2) { 
-  background-image: url(http://i.imgur.com/SBEmFpv.jpg);
+  background-image: url(https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fcdn-image.travelandleisure.com%2Fsites%2Fdefault%2Ffiles%2Fstyles%2F1600x1000%2Fpublic%2F1534779470%2Fjoshua-tree-camping-CACAMP0818.jpg%3Fitok%3DpXm1sXSp&w=400&c=sc&poi=face&q=85);
   animation-delay: 10s; 
 }
 .slideshow li:nth-child(3) { 
-  background-image: url(http://i.imgur.com/emvhOnb.jpg);
+  background-image: url(https://campinggearfit.com/wp-content/uploads/2018/01/Stanley-lake-camping-Credit-Carol-Waller-2011-1024x768.jpg);
   animation-delay: 20s; 
 }
 .slideshow li:nth-child(4) { 
-  background-image: url(http://i.imgur.com/2LSMCmJ.jpg);
+  background-image: url(https://cdn.shopify.com/s/files/1/0345/4485/files/alabama_oakmountain.jpg?v=1531431010);
   animation-delay: 30s; 
 }
 .slideshow li:nth-child(5) { 
-  background-image: url(http://i.imgur.com/TVGe0Ef.jpg);
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0B8H7DPKB9Ox8DddB8fT1wuscR-LffB5YEzgEgTsSabpcZowSIA);
   animation-delay: 40s; 
 }
 
