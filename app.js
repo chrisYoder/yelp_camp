@@ -19,7 +19,14 @@ const campgroundRoutes      = require('./routes/campgrounds'),
       indexRoutes           = require('./routes/index');
       
 const url = (process.env.DATABASEURL || 'mongodb://localhost:27017/yelp_camp');
-mongoose.connect(url);
+mongoose.connect(url, { 
+	useNewUrlParser: true,
+	useCreateIndex: true
+}).then(() => {
+	console.log('connected to db');
+}).catch(err => {
+	console.log('ERROR:', err.message);
+});
 
 // mongoose.connect('mongodb+srv://theCodingStoic:Martin9338@cluster0-budax.mongodb.net/test?retryWrites=true', { 
 // 	useNewUrlParser: true,
@@ -72,4 +79,4 @@ app.use('/campgrounds', campgroundRoutes);
 
 
 
-app.listen(process.env.PORT, process.env.IP, () => console.log('Yelp Camp is running'));
+app.listen(process.env.PORT || 3000, process.env.IP, () => console.log('Yelp Camp is running'));
