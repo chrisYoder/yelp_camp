@@ -71,4 +71,4 @@ app.use('/campgrounds', campgroundRoutes);
 
 
 
-app.listen(3000, () => console.log('Yelp Camp is running'));
+app.listen(process.env.PORT || 3000, () => console.log('Yelp Camp is running'));
