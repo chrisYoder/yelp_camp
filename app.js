@@ -10,7 +10,7 @@ const express               = require('express'),
       User                  = require('./models/userModel'),
       flash                 = require('connect-flash'),
       methodOverride        = require('method-override');
-    //   seedDB                = require('./seeds');
+      seedDB                = require('./seeds');
       
       
 // requiring routes 
@@ -18,21 +18,21 @@ const campgroundRoutes      = require('./routes/campgrounds'),
       commentRoutes         = require('./routes/comments'),
       indexRoutes           = require('./routes/index');
       
-
-   
-mongoose.connect('mongodb+srv://theCodingStoic:Martin9338@cluster0-budax.mongodb.net/test?retryWrites=true', { 
-	useNewUrlParser: true,
-	useCreateIndex: true
-}).then(() => {
-	console.log('connected to db');
-}).catch(err => {
-	console.log('ERROR:', err.message);
-});
+console.log(process.env.DATABASEURL);
+mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true} ); 
+// mongoose.connect('mongodb+srv://theCodingStoic:Martin9338@cluster0-budax.mongodb.net/test?retryWrites=true', { 
+// 	useNewUrlParser: true,
+// 	useCreateIndex: true
+// }).then(() => {
+// 	console.log('connected to db');
+// }).catch(err => {
+// 	console.log('ERROR:', err.message);
+// });
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
-// seedDB();
+seedDB();
 
 app.use(flash());
 // Passport config
@@ -71,4 +71,4 @@ app.use('/campgrounds', campgroundRoutes);
 
 
 
-app.listen(process.env.PORT || 3000, () => console.log('Yelp Camp is running'));
+app.listen(process.env.PORT , () => console.log('Yelp Camp is running'));
